@@ -27,7 +27,10 @@
   .title-bar .affil { font-size: 26pt; color: #8fa0b8; margin-top: 0.06in; }
 
   /* Layout regions */
-  .col { position: absolute; display: flex; flex-direction: column; justify-content: space-between; }
+  .col { position: absolute; display: flex; flex-direction: column; }
+  .col .block { flex: 1 1 auto; display: flex; flex-direction: column; }
+  .col .block:last-child { margin-bottom: 0; }
+  .col .bb { flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .col1 { left: 0.35in; width: 17.6in; top: 3.8in; bottom: 0.3in; }
   .env-center { position: absolute; left: 18.25in; width: 34.5in; top: 3.8in; }
   .colA { left: 18.25in; width: 17.1in; top: 13.3in; bottom: 0.3in; }
