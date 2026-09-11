@@ -11,28 +11,26 @@
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 26pt; line-height: 1.35; color: #1a1a1a;
     position: relative; overflow: hidden;
-    background: #eef1f5;
+    background: #16202d;
   }
 
   /* Title bar */
   .title-bar {
     position: absolute; top: 0; left: 0; right: 0; height: 3.5in;
-    background: white;
-    border-bottom: 6px solid;
-    border-image: linear-gradient(90deg, #c0392b, #2980b9) 1;
+    background: #16202d;
     display: flex; align-items: center;
     padding: 0 0.6in; gap: 0.5in;
   }
   .title-bar .txt { flex: 1; text-align: center; }
-  .title-bar h1 { font-size: 86pt; font-weight: 800; line-height: 1.1; margin-bottom: 0.12in; color: #1b2a4a; }
-  .title-bar .authors { font-size: 36pt; color: #2c3e50; }
-  .title-bar .affil { font-size: 26pt; color: #777; margin-top: 0.06in; }
+  .title-bar h1 { font-size: 86pt; font-weight: 800; line-height: 1.1; margin-bottom: 0.12in; color: white; }
+  .title-bar .authors { font-size: 36pt; color: #dbe4f0; }
+  .title-bar .affil { font-size: 26pt; color: #8fa0b8; margin-top: 0.06in; }
   .colm-badge {
-    background: #1b2a4a; color: white; border-radius: 12px;
+    background: transparent; border: 3px solid #8fa0b8; color: white; border-radius: 12px;
     padding: 0.18in 0.3in; text-align: center;
     font-size: 32pt; font-weight: 800; line-height: 1.25;
   }
-  .colm-badge .sub { font-size: 21pt; font-weight: 400; color: #cdd6e4; }
+  .colm-badge .sub { font-size: 21pt; font-weight: 400; color: #b8c6da; }
 
   /* Columns */
   .col { position: absolute; top: 3.8in; bottom: 0.3in; width: 17.6in; display: flex; flex-direction: column; justify-content: space-between; }
@@ -43,22 +41,23 @@
 
   /* Block */
   .block {
-    background: white; border-radius: 12px;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.07);
-    border: 2px solid #c8cfd8; overflow: hidden;
-    margin-bottom: 0.28in;
+    background: white; border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.4);
+    overflow: hidden;
+    margin-bottom: 0.18in;
   }
   .bt {
-    background: linear-gradient(90deg, #1b3a5c, #2c5282);
+    background: #2c3e50;
     color: white; font-size: 34pt; font-weight: 700;
     padding: 0.1in 0.22in;
   }
+  .bt-warn { background: #f2b3a7; color: #7b241c; }
   .bb { padding: 0.22in 0.26in; }
 
   /* Highlight box */
   .hl {
-    background: linear-gradient(135deg, #ebf5fb, #d4e6f1);
-    border: 2.5px solid #2980b9; border-radius: 10px;
+    background: #e3eef8;
+    border: 2.5px solid #7fa8cc; border-radius: 10px;
     padding: 0.14in 0.2in; margin: 0.12in 0 0 0;
     text-align: center; font-weight: 700; font-size: 27pt; line-height: 1.4;
   }
@@ -72,7 +71,7 @@
   table { width: 100%; border-collapse: collapse; font-size: 23pt; }
   th { background: #2c3e50; color: white; padding: 0.06in 0.12in; text-align: left; font-weight: 600; }
   td { padding: 0.05in 0.12in; border-bottom: 1px solid #e0e0e0; }
-  tr:nth-child(even) { background: #f8f9fa; }
+  tr:nth-child(even) { background: #e9f1fa; }
 
   .setup-table td:first-child { font-weight: 700; color: #1b3a5c; width: 34%; }
 
@@ -92,7 +91,7 @@
 
   .stat-row { display: flex; gap: 0.15in; margin-top: 0.12in; }
   .stat {
-    flex: 1; background: #f4f6f8; border: 2px solid #c8cfd8; border-radius: 10px;
+    flex: 1; background: #eef4fa; border: 2px solid #b9cde0; border-radius: 10px;
     padding: 0.1in; text-align: center;
   }
   .stat .v { font-size: 42pt; font-weight: 800; color: #1b3a5c; line-height: 1.1; }
@@ -168,6 +167,8 @@
         <li><strong>Programmatic Points:</strong> promise part of your final score, auto-paid</li>
       </ul>
       <p class="sm" style="margin-top:0.1in;">Negotiation runs up to 8 turns; a judge model (Qwen-3-235B) summarizes agreed terms into a JSON contract that both players must accept. The judge is highly accurate (0.26% error across 1,155 approved moves).</p>
+      <div style="background:#1e2936; color:#d5e3f2; font-family:Menlo,monospace; font-size:19pt; border-radius:8px; padding:0.12in 0.18in; margin-top:0.12in; line-height:1.45;">{"(row,col)": {"giver": "Player X",<br>&nbsp;&nbsp;"receiver": "Player Y", "color": "&lt;Color&gt;"}, ...}</div>
+      <p class="caption">A Programmatic Trading contract: when the receiver steps on the tile, the chip transfer executes automatically; a giver who cannot pay scores 0.</p>
     </div>
   </div>
 
@@ -259,7 +260,7 @@
   </div>
 
   <div class="block">
-    <div class="bt">When Contracts Backfire</div>
+    <div class="bt bt-warn">When Contracts Backfire</div>
     <div class="bb">
       <p>On Mutually Dependent boards, natural-language contracts <strong>underperform having no contract at all</strong>: Both Finished is 46% vs 61% (No-Contract) vs 79% (Programmatic Trading).</p>
       <p style="margin-top:0.08in;"><strong>Mechanism &mdash; over-anchoring:</strong> contracts formed are similar, but Natural Language Trading suppresses the follow-up trading still needed to finish (1.4 vs 3.0 proposals per game). When declining to trade, models cite their contract 94% of the time, vs 74% under Programmatic Trading.</p>
@@ -275,14 +276,24 @@
   </div>
 
   <div class="block">
-    <div class="bt">Takeaways</div>
+    <div class="bt bt-warn">Takeaways</div>
     <div class="bb">
       <ol class="findings">
         <li><strong>The way contracts are represented and enforced matters:</strong> contracts that compile to programs consistently outperform natural-language ones</li>
         <li><strong>Self-negotiated contracts can improve cooperative outcomes</strong> beyond what regular trading achieves</li>
         <li><strong>Agents struggle to achieve mutually beneficial outcomes from asymmetric starting points</strong> &mdash; structured commitment closes part of this gap</li>
       </ol>
-      <p class="sm" style="margin-top:0.1in;">CT-Bench is open-sourced. Paper: <strong>arxiv.org/abs/2607.22750</strong></p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="bt">Paper &amp; Acknowledgments</div>
+    <div class="bb" style="display:flex; gap:0.2in; align-items:center;">
+      <img src="figures/qr_arxiv.png" style="width:2.6in; height:2.6in; border-radius:6px;">
+      <div>
+        <p><strong>CT-Bench is open-sourced.</strong> Paper: <strong>arxiv.org/abs/2607.22750</strong></p>
+        <p class="sm" style="margin-top:0.08in;">Thanks to Andrey Seryakov for useful discussions. Completed as part of the <strong>Algoverse AI Safety Fellowship</strong>. Funding: Toyota Research Institute, Cooperative AI Foundation, Foresight Institute, Sony Research Award Program, UW&ndash;Tsukuba Amazon NVIDIA Cross Pacific AI Initiative, Jacobs CIFAR Research Fellowship, Templeton World Charity Foundation.</p>
+      </div>
     </div>
   </div>
 
