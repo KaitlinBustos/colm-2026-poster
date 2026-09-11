@@ -9,7 +9,7 @@
   body {
     width: 72in; height: 36in;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 26pt; line-height: 1.35; color: #1a1a1a;
+    font-size: 30pt; line-height: 1.3; color: #1a1a1a;
     position: relative; overflow: hidden;
     background: #16202d;
   }
@@ -22,9 +22,9 @@
     padding: 0 0.6in; gap: 0.5in;
   }
   .title-bar .txt { flex: 1; text-align: center; }
-  .title-bar h1 { font-size: 86pt; font-weight: 800; line-height: 1.1; margin-bottom: 0.12in; color: white; }
-  .title-bar .authors { font-size: 36pt; color: #dbe4f0; }
-  .title-bar .affil { font-size: 26pt; color: #8fa0b8; margin-top: 0.06in; }
+  .title-bar h1 { font-size: 92pt; font-weight: 800; line-height: 1.1; margin-bottom: 0.12in; color: white; }
+  .title-bar .authors { font-size: 38pt; color: #dbe4f0; }
+  .title-bar .affil { font-size: 27pt; color: #8fa0b8; margin-top: 0.06in; }
 
   /* Layout regions */
   .col { position: absolute; display: flex; flex-direction: column; }
@@ -33,8 +33,8 @@
   .col .bb { flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .col1 { left: 0.35in; width: 17.6in; top: 3.8in; bottom: 0.3in; }
   .env-center { position: absolute; left: 18.25in; width: 34.5in; top: 3.8in; }
-  .colA { left: 18.25in; width: 17.1in; top: 13.3in; bottom: 0.3in; }
-  .colB { left: 35.65in; width: 17.1in; top: 13.3in; bottom: 0.3in; }
+  .colA { left: 18.25in; width: 17.1in; top: 13.5in; bottom: 0.3in; }
+  .colB { left: 35.65in; width: 17.1in; top: 13.5in; bottom: 0.3in; }
   .col4 { left: 53.05in; width: 18.6in; top: 3.8in; bottom: 0.3in; }
 
   /* Block */
@@ -46,10 +46,10 @@
   }
   .bt {
     background: #2c3e50;
-    color: white; font-size: 34pt; font-weight: 700;
+    color: white; font-size: 40pt; font-weight: 700;
     padding: 0.1in 0.22in;
   }
-  .bt-warn { background: #f2b3a7; color: #7b241c; }
+  .bt-accent { background: #5b7fe8; }
   .bb { padding: 0.22in 0.26in; }
 
   /* Central environment block */
@@ -62,21 +62,21 @@
     background: #e3eef8;
     border: 2.5px solid #7fa8cc; border-radius: 10px;
     padding: 0.14in 0.2in; margin: 0.12in 0 0 0;
-    text-align: center; font-weight: 700; font-size: 27pt; line-height: 1.4;
+    text-align: center; font-weight: 700; font-size: 31pt; line-height: 1.35;
   }
 
-  ul, ol { padding-left: 0.35in; }
-  li { margin-bottom: 0.06in; }
+  ul, ol { padding-left: 0.4in; }
+  li { margin-bottom: 0.07in; }
 
   .fig { width: 100%; display: block; border-radius: 6px; }
-  .caption { font-size: 20pt; color: #555; margin-top: 0.08in; }
+  .caption { font-size: 23pt; color: #555; margin-top: 0.08in; }
 
-  table { width: 100%; border-collapse: collapse; font-size: 23pt; }
+  table { width: 100%; border-collapse: collapse; font-size: 26pt; }
   th { background: #2c3e50; color: white; padding: 0.06in 0.12in; text-align: left; font-weight: 600; }
   td { padding: 0.05in 0.12in; border-bottom: 1px solid #e0e0e0; }
   tr:nth-child(even) { background: #e9f1fa; }
 
-  .setup-table td:first-child { font-weight: 700; color: #1b3a5c; width: 34%; }
+  .setup-table td:first-child { font-weight: 700; color: #1b3a5c; width: 30%; }
 
   /* Results table with heat-mapped cells */
   .rtab th, .rtab td { text-align: center; }
@@ -89,22 +89,21 @@
 
   .pred { color: #c0392b; font-weight: 700; }
   .pblue { color: #2980b9; font-weight: 700; }
-  .navy { color: #1b3a5c; font-weight: 700; }
-  .sm { font-size: 20pt; color: #555; }
+  .sm { font-size: 23pt; color: #555; }
 
   .stat-row { display: flex; gap: 0.15in; margin-top: 0.12in; }
   .stat {
     flex: 1; background: #eef4fa; border: 2px solid #b9cde0; border-radius: 10px;
     padding: 0.1in; text-align: center;
   }
-  .stat .v { font-size: 42pt; font-weight: 800; color: #1b3a5c; line-height: 1.1; }
-  .stat .l { font-size: 19pt; color: #555; margin-top: 0.04in; line-height: 1.25; }
+  .stat .v { font-size: 48pt; font-weight: 800; color: #1b3a5c; line-height: 1.1; }
+  .stat .l { font-size: 22pt; color: #555; margin-top: 0.04in; line-height: 1.25; }
 
-  .findings li { margin-bottom: 0.08in; }
+  .findings li { margin-bottom: 0.1in; }
   .findings strong { color: #1b3a5c; }
 
   .code-box {
-    background: #1e2936; color: #d5e3f2; font-family: Menlo, monospace; font-size: 19pt;
+    background: #1e2936; color: #d5e3f2; font-family: Menlo, monospace; font-size: 21pt;
     border-radius: 8px; padding: 0.12in 0.18in; margin-top: 0.12in; line-height: 1.45;
   }
 </style>
@@ -129,10 +128,10 @@
         <div class="env-fig"><img src="figures/fig1_environment.png" class="fig"></div>
         <div class="env-side">
           <table class="setup-table">
-            <tr><td>Game</td><td>2 players (<span class="pred">P-Red</span>, <span class="pblue">P-Blue</span>) on a 4&times;4 board; move to a tile by paying a chip of its color</td></tr>
-            <tr><td>Chips</td><td>Each player holds 14 chips of only its own color (+2 green), so trades are needed to cross the other color</td></tr>
-            <tr><td>Scoring</td><td>20 points for reaching the goal + 5 points per remaining chip; each player maximizes its own score</td></tr>
-            <tr><td>Pay-for-Partner</td><td>Players promise to cover each other's moves; promises are <strong>non-binding</strong>, so partners can renege</td></tr>
+            <tr><td>Game</td><td><span class="pred">P-Red</span> and <span class="pblue">P-Blue</span> on a 4&times;4 board; moving onto a tile costs a chip of its color</td></tr>
+            <tr><td>Chips</td><td>14 chips of own color + 2 green each &mdash; crossing the other color requires trades</td></tr>
+            <tr><td>Scoring</td><td>20 points for the goal + 5 per remaining chip; each player maximizes its own score</td></tr>
+            <tr><td>Pay-for-Partner</td><td>Players promise to cover each other's moves; promises are <strong>non-binding</strong></td></tr>
           </table>
         </div>
       </div>
@@ -146,8 +145,7 @@
   <div class="block">
     <div class="bt">Why Contracts?</div>
     <div class="bb">
-      <p>As AI agents operate autonomously in multi-agent settings, they must cooperate with other agents and with humans. Cooperation is hard because its <strong>costs come early but its benefits come later</strong>, creating an incentive to defect.</p>
-      <p style="margin-top:0.1in;">Human societies solve this principal&ndash;agent problem with <strong>contracts</strong>: observable representations of agreements that enable credible commitment through enforcement of terms.</p>
+      <p>Cooperation is hard: its <strong>costs come early, its benefits come later</strong> &mdash; an incentive to defect. Human societies solve this with <strong>contracts</strong>: observable agreements whose enforced terms make commitments credible.</p>
       <div class="hl">Can LLM agents use self-negotiated contracts to cooperate with commitment?</div>
     </div>
   </div>
@@ -156,30 +154,19 @@
     <div class="bt">Board Types (80 boards)</div>
     <div class="bb">
       <ul>
-        <li><strong>Independent (20):</strong> each player can finish alone &mdash; tests rule-following without needing cooperation</li>
-        <li><strong>Mutually Dependent (20):</strong> neither player can finish without trading &mdash; tests finding mutual gains</li>
-        <li><strong>Asymmetric (40):</strong> <span class="pred">P-Red</span> can finish alone, <span class="pblue">P-Blue</span> cannot &mdash; tests bargaining under power asymmetry</li>
+        <li><strong>Independent (20):</strong> each player can finish alone</li>
+        <li><strong>Mutually Dependent (20):</strong> neither can finish without trading</li>
+        <li><strong>Asymmetric (40):</strong> <span class="pred">P-Red</span> can finish alone, <span class="pblue">P-Blue</span> cannot</li>
       </ul>
       <img src="figures/boards_sample.png" class="fig" style="margin-top:0.12in;">
-      <p class="sm" style="margin-top:0.08in;">Metrics: Normalized Joint Reward, Gini (inequality), Both Finished, Both Beat Baseline (BBB), Defection.</p>
-    </div>
-  </div>
-
-  <div class="block">
-    <div class="bt">Experimental Setup</div>
-    <div class="bb">
-      <table class="setup-table">
-        <tr><td>Models</td><td>GPT-4.1, Haiku-4.5, LLaMA Maverick, LLaMA Scout, Qwen-3-235B, Qwen-3-30B</td></tr>
-        <tr><td>Protocol</td><td>Self-play on all 80 boards; metrics computed per board</td></tr>
-        <tr><td>Conditions</td><td>No-Contract baseline vs each of the three contract types</td></tr>
-      </table>
+      <p class="sm" style="margin-top:0.08in;">Metrics: Normalized Joint Reward, Gini, Both Finished, Both Beat Baseline (BBB), Defection. Six models in self-play on all 80 boards.</p>
     </div>
   </div>
 
   <div class="block">
     <div class="bt">Without Contracts, Cooperation Fails Under Asymmetry</div>
     <div class="bb">
-      <p class="sm" style="margin-bottom:0.08in;">Pay-for-Partner, no contracts. R&#770; = Normalized Joint Reward; BF = Both Finished; BBB = Both Beat Baseline; Def. = Defection.</p>
+      <p class="sm" style="margin-bottom:0.08in;">Pay-for-Partner, no contracts. R&#770; = Normalized Joint Reward; BF = Both Finished; Def. = Defection.</p>
       <table class="rtab">
         <thead><tr><th>Model</th><th>R&#770;</th><th>Gini</th><th>BF</th><th>BBB</th><th>Def.</th></tr></thead>
         <tbody>
@@ -192,7 +179,7 @@
           <tr style="border-top:2.5px solid #95a5a6;"><td><strong>Mean</strong></td><td><strong>0.77</strong></td><td><strong>0.18</strong></td><td><strong>0.60</strong></td><td><strong>0.00</strong></td><td><strong>0.32</strong></td></tr>
         </tbody>
       </table>
-      <div class="hl">BBB = 0.00 for <em>every</em> model: without contracts, no model ever got both players above their baseline on any Asymmetric board.</div>
+      <div class="hl">BBB = 0.00 for <em>every</em> model: no model got both players above baseline on any Asymmetric board.</div>
     </div>
   </div>
 
@@ -211,9 +198,8 @@
         <li><strong>Natural Language Trading:</strong> contract in natural language, an LLM judge enforces it</li>
         <li><strong>Programmatic Points:</strong> promise part of your final score, auto-paid</li>
       </ul>
-      <p class="sm" style="margin-top:0.1in;">Negotiation runs up to 8 turns; a judge model (Qwen-3-235B) summarizes agreed terms into a JSON contract that both players must accept. The judge is highly accurate (0.26% error across 1,155 approved moves).</p>
       <div class="code-box">{"(row,col)": {"giver": "Player X",<br>&nbsp;&nbsp;"receiver": "Player Y", "color": "&lt;Color&gt;"}, ...}</div>
-      <p class="caption">A Programmatic Trading contract: when the receiver steps on the tile, the chip transfer executes automatically; a giver who cannot pay scores 0.</p>
+      <p class="caption">Up to 8 negotiation turns; a judge model (Qwen-3-235B) writes the JSON contract, which both players must accept.</p>
     </div>
   </div>
 
@@ -222,8 +208,8 @@
     <div class="bb">
       <img src="figures/contract_formation.png" class="fig">
       <ul style="margin-top:0.1in;">
-        <li>Agents reliably reach agreement: <strong>86%</strong> mean acceptance (Haiku-4.5 an outlier at 67%, p&lt;0.001)</li>
-        <li><strong>Representation shapes fairness:</strong> Programmatic Points yields winner-takes-all deals on 39% of Asymmetric boards (74% for Qwen models); Programmatic Trading assigns equal tile counts in 49% of cases</li>
+        <li>Agents reliably agree: <strong>86%</strong> mean acceptance (Haiku-4.5: 67%)</li>
+        <li><strong>Representation shapes fairness:</strong> Programmatic Points is winner-takes-all on 39% of Asymmetric boards (Qwen: 74%); Programmatic Trading splits tiles equally in 49%</li>
       </ul>
     </div>
   </div>
@@ -238,9 +224,9 @@
     <div class="bb">
       <img src="figures/main_panels.png" class="fig">
       <div class="stat-row">
-        <div class="stat"><div class="v">0.77 &rarr; 0.89</div><div class="l">Normalized Joint Reward, No-Contract &rarr; Programmatic Trading (p&lt;0.001)</div></div>
-        <div class="stat"><div class="v">&minus;38%</div><div class="l">fewer non-binding Pay-for-Partner arrangements under Programmatic Trading</div></div>
-        <div class="stat"><div class="v">45 vs 6</div><div class="l">of 60 dependent boards where Programmatic Trading (vs No-Contract) has the highest Both Finished</div></div>
+        <div class="stat"><div class="v">0.77 &rarr; 0.89</div><div class="l">Joint Reward, No-Contract &rarr; Programmatic Trading (p&lt;0.001)</div></div>
+        <div class="stat"><div class="v">&minus;38%</div><div class="l">fewer non-binding promise arrangements</div></div>
+        <div class="stat"><div class="v">45 vs 6</div><div class="l">of 60 dependent boards: best Both Finished</div></div>
       </div>
     </div>
   </div>
@@ -249,14 +235,14 @@
     <div class="bt">Both Finished, Board by Board</div>
     <div class="bb">
       <img src="figures/heatmap_both_finished.png" class="fig">
-      <p class="caption">Mean Both Finished across all 80 boards and contract types. Programmatic Trading gives small but consistent gains on Mutually Dependent and Asymmetric boards.</p>
+      <p class="caption">Mean Both Finished per board: Programmatic Trading gives consistent gains on dependent boards.</p>
     </div>
   </div>
 
   <div class="block">
     <div class="bt">Contracts Help the Weaker Player</div>
     <div class="bb">
-      <p>On Asymmetric boards, contracts primarily benefit the weaker player: under Programmatic Trading, <span class="pblue">P-Blue</span>'s average reward is <strong>68% higher</strong> than without contracts (p&lt;0.001), while <span class="pred">P-Red</span> shows no significant gain &mdash; the stronger player fails to exploit its bargaining position.</p>
+      <p>On Asymmetric boards, <span class="pblue">P-Blue</span>'s reward is <strong>68% higher</strong> under Programmatic Trading (p&lt;0.001); <span class="pred">P-Red</span> gains nothing &mdash; the stronger player fails to exploit its position.</p>
     </div>
   </div>
 
@@ -266,10 +252,10 @@
 <div class="col col4">
 
   <div class="block">
-    <div class="bt bt-warn">When Contracts Backfire</div>
+    <div class="bt bt-accent">When Contracts Backfire</div>
     <div class="bb">
-      <p>On Mutually Dependent boards, natural-language contracts <strong>underperform having no contract at all</strong>: Both Finished is 46% vs 61% (No-Contract) vs 79% (Programmatic Trading).</p>
-      <p style="margin-top:0.08in;"><strong>Mechanism &mdash; over-anchoring:</strong> contracts formed are similar, but Natural Language Trading suppresses the follow-up trading still needed to finish (1.4 vs 3.0 proposals per game). When declining to trade, models cite their contract 94% of the time, vs 74% under Programmatic Trading.</p>
+      <p>On Mutually Dependent boards, natural-language contracts <strong>underperform no contract at all</strong>: Both Finished 46% vs 61% (No-Contract) vs 79% (Programmatic Trading).</p>
+      <p style="margin-top:0.08in;"><strong>Over-anchoring:</strong> contracts formed are similar, but Natural Language Trading suppresses the follow-up trading still needed (1.4 vs 3.0 proposals per game); models declining to trade cite the contract 94% vs 74% of the time.</p>
     </div>
   </div>
 
@@ -284,18 +270,17 @@
   <div class="block">
     <div class="bt">Beyond Self-Play</div>
     <div class="bb">
-      <p>Pairing GPT-4.1 with Haiku-4.5 (strong&ndash;strong) and Qwen-3-30B (strong&ndash;weak) on Mutually Dependent boards: under Programmatic Trading, the strong model lifts the weak model at its own expense while joint reward stays high &mdash; <strong>efficient cooperation survives large capability gaps</strong>.</p>
-      <p style="margin-top:0.08in;">Without contracts, GPT-4.1 scores 0 as <span class="pred">P-Red</span> against Qwen-3-30B, which honors only <strong>6%</strong> of its promises (Haiku-4.5 honors 100%). Programmatic Trading enforces the transfers and resolves this.</p>
+      <p>Pairing strong with weak models on Mutually Dependent boards: under Programmatic Trading the strong model lifts the weak one at its own expense &mdash; <strong>cooperation survives large capability gaps</strong>. Without contracts, GPT-4.1 scores 0 against Qwen-3-30B, which honors only <strong>6%</strong> of its promises (Haiku-4.5: 100%).</p>
     </div>
   </div>
 
   <div class="block">
-    <div class="bt bt-warn">Takeaways</div>
+    <div class="bt bt-accent">Takeaways</div>
     <div class="bb">
       <ol class="findings">
         <li><strong>The way contracts are represented and enforced matters:</strong> contracts that compile to programs consistently outperform natural-language ones</li>
-        <li><strong>Self-negotiated contracts can improve cooperative outcomes</strong> beyond what regular trading achieves</li>
-        <li><strong>Agents struggle to achieve mutually beneficial outcomes from asymmetric starting points</strong> &mdash; structured commitment closes part of this gap</li>
+        <li><strong>Self-negotiated contracts can improve cooperative outcomes</strong> beyond regular trading</li>
+        <li><strong>Agents struggle to reach mutually beneficial outcomes from asymmetric starting points</strong></li>
       </ol>
     </div>
   </div>
