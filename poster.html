@@ -31,11 +31,11 @@
   .col .block { flex: 1 1 auto; display: flex; flex-direction: column; }
   .col .block:last-child { margin-bottom: 0; }
   .col .bb { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-  .col1 { left: 0.35in; width: 16.6in; top: 3.4in; bottom: 0.3in; }
-  .env-center { position: absolute; left: 17.25in; width: 36.5in; top: 3.4in; }
-  .colA { left: 17.25in; width: 18.1in; top: 20.15in; bottom: 0.3in; }
-  .colB { left: 35.65in; width: 18.1in; top: 20.15in; bottom: 0.3in; }
-  .col4 { left: 54.05in; width: 17.6in; top: 3.4in; bottom: 0.3in; }
+  .col1 { left: 0.35in; width: 14.7in; top: 3.4in; bottom: 0.3in; }
+  .env-center { position: absolute; left: 15.35in; width: 40.0in; top: 3.4in; }
+  .colA { left: 15.35in; width: 19.85in; top: 19.1in; bottom: 0.3in; }
+  .colB { left: 35.5in; width: 19.85in; top: 19.1in; bottom: 0.3in; }
+  .col4 { left: 55.65in; width: 16.0in; top: 3.4in; bottom: 0.3in; }
 
   /* Block */
   .block {
@@ -96,7 +96,7 @@
     flex: 1; background: #eef4fa; border: 2px solid #b9cde0; border-radius: 10px;
     padding: 0.1in; text-align: center;
   }
-  .stat .v { font-size: 42pt; font-weight: 800; color: #1b3a5c; line-height: 1.1; }
+  .stat .v { font-size: 48pt; font-weight: 800; color: #1b3a5c; line-height: 1.1; }
   .stat .l { font-size: 26pt; color: #555; margin-top: 0.04in; line-height: 1.25; }
 
   .findings li { margin-bottom: 0.1in; }
@@ -149,7 +149,6 @@
         <li><strong>Mutually Dependent (20):</strong> neither can finish without trading</li>
         <li><strong>Asymmetric (40):</strong> <span class="pred">P-Red</span> can finish alone, <span class="pblue">P-Blue</span> cannot</li>
       </ul>
-      <img src="figures/boards_sample.png" class="fig" style="margin-top:0.12in;">
       <p class="sm" style="margin-top:0.08in;">Metrics: Normalized Joint Reward, Gini, Both Finished, Both Beat Baseline (BBB), Defection. Six models in self-play on all 80 boards.</p>
     </div>
   </div>
@@ -174,6 +173,14 @@
     </div>
   </div>
 
+  <div class="block">
+    <div class="bt">Both Finished, Board by Board</div>
+    <div class="bb">
+      <img src="figures/heatmap_both_finished.png" class="fig" style="width:92%; margin:0 auto;">
+      <p class="caption" style="text-align:center;">Programmatic Trading gives consistent gains on dependent boards.</p>
+    </div>
+  </div>
+
 </div>
 
 <!-- CENTER-LEFT: CONTRACTS -->
@@ -182,7 +189,7 @@
   <div class="block">
     <div class="bt">Self-Negotiated Contracts</div>
     <div class="bb">
-      <img src="figures/fig3_contract_types.png" class="fig" style="width:88%; margin:0 auto;">
+      <img src="figures/fig3_contract_types.png" class="fig" style="width:85%; margin:0 auto;">
       <p style="margin-top:0.1in;">Agents negotiate their own contracts:</p>
       <ul style="margin-top:0.06in;">
         <li><strong>Programmatic Trading:</strong> chip transfers to cover agreed tiles, auto-executed</li>
@@ -195,7 +202,7 @@
   <div class="block">
     <div class="bt">Contract Formation</div>
     <div class="bb">
-      <img src="figures/contract_formation.png" class="fig" style="width:78%; margin:0 auto;">
+      <img src="figures/contract_formation.png" class="fig" style="width:75%; margin:0 auto;">
       <ul style="margin-top:0.1in;">
         <li>Agents reliably agree: <strong>86%</strong> mean acceptance (Haiku-4.5: 67%)</li>
         <li><strong>Representation shapes fairness:</strong> Programmatic Points is winner-takes-all in 39%; Programmatic Trading splits equally in 49%</li>
@@ -211,7 +218,7 @@
   <div class="block">
     <div class="bt">Contracts Improve Cooperative Outcomes</div>
     <div class="bb">
-      <img src="figures/main_panels.png" class="fig" style="width:90%; margin:0 auto;">
+      <img src="figures/main_panels.png" class="fig" style="width:100%;">
       <div class="stat-row">
         <div class="stat"><div class="v">0.77 &rarr; 0.89</div><div class="l">Joint Reward, No-Contract &rarr; Programmatic Trading (p&lt;0.001)</div></div>
         <div class="stat"><div class="v">&minus;38%</div><div class="l">fewer non-binding promise arrangements</div></div>
@@ -221,10 +228,9 @@
   </div>
 
   <div class="block">
-    <div class="bt">Both Finished, Board by Board</div>
+    <div class="bt">Contracts Help the Weaker Player</div>
     <div class="bb">
-      <img src="figures/heatmap_both_finished.png" class="fig" style="width:72%; margin:0 auto;">
-      <p class="caption" style="text-align:center;">Programmatic Trading gives consistent gains on dependent boards.</p>
+      <p>On Asymmetric boards, <span class="pblue">P-Blue</span>'s reward is <strong>68% higher</strong> under Programmatic Trading (p&lt;0.001); <span class="pred">P-Red</span> gains nothing &mdash; the stronger player fails to exploit its position.</p>
     </div>
   </div>
 
@@ -246,13 +252,6 @@
     <div class="bb">
       <img src="figures/fig7_routes.png" class="fig">
       <p class="caption">Contracts can improve outcomes. On boards where models fail to reach their goals without a contract, adding a Programmatic Trading contract lets every model complete its route.</p>
-    </div>
-  </div>
-
-  <div class="block">
-    <div class="bt">Contracts Help the Weaker Player</div>
-    <div class="bb">
-      <p>On Asymmetric boards, <span class="pblue">P-Blue</span>'s reward is <strong>68% higher</strong> under Programmatic Trading (p&lt;0.001); <span class="pred">P-Red</span> gains nothing &mdash; the stronger player fails to exploit its position.</p>
     </div>
   </div>
 
