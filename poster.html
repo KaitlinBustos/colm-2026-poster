@@ -33,8 +33,8 @@
   .col .bb { flex: 1; display: flex; flex-direction: column; justify-content: center; }
   .col1 { left: 0.35in; width: 17.6in; top: 3.8in; bottom: 0.3in; }
   .env-center { position: absolute; left: 18.25in; width: 34.5in; top: 3.8in; }
-  .colA { left: 18.25in; width: 17.1in; top: 15.65in; bottom: 0.3in; }
-  .colB { left: 35.65in; width: 17.1in; top: 15.65in; bottom: 0.3in; }
+  .colA { left: 18.25in; width: 17.1in; top: 16.75in; bottom: 0.3in; }
+  .colB { left: 35.65in; width: 17.1in; top: 16.75in; bottom: 0.3in; }
   .col4 { left: 53.05in; width: 18.6in; top: 3.8in; bottom: 0.3in; }
 
   /* Block */
@@ -124,7 +124,7 @@
   <div class="block">
     <div class="bt">The CT-Bench Environment</div>
     <div class="bb">
-      <img src="figures/fig1_environment.png" class="fig" style="width:65%; margin:0 auto;">
+      <img src="figures/fig1_environment.png" class="fig" style="width:75%; margin:0 auto;">
       <p class="caption" style="text-align:center; margin-top:0.12in;"><span class="pred">P-Red</span> and <span class="pblue">P-Blue</span> each hold chips of only their own color on a 4&times;4 board; moving onto a tile costs a chip of that color, so reaching the goal (20 points + 5 per leftover chip) requires trades. In Pay-for-Partner, players promise to cover each other's moves &mdash; promises are <strong>non-binding</strong>, so partners can renege.</p>
     </div>
   </div>
@@ -183,7 +183,7 @@
     <div class="bt">Self-Negotiated Contracts</div>
     <div class="bb">
       <img src="figures/fig3_contract_types.png" class="fig">
-      <p style="margin-top:0.12in;">Agents negotiate their own contracts, in three forms:</p>
+      <p style="margin-top:0.1in;">Agents negotiate their own contracts:</p>
       <ul style="margin-top:0.06in;">
         <li><strong>Programmatic Trading:</strong> chip transfers to cover agreed tiles, auto-executed</li>
         <li><strong>Natural Language Trading:</strong> contract in natural language, an LLM judge enforces it</li>
@@ -199,7 +199,7 @@
       <img src="figures/contract_formation.png" class="fig">
       <ul style="margin-top:0.1in;">
         <li>Agents reliably agree: <strong>86%</strong> mean acceptance (Haiku-4.5: 67%)</li>
-        <li><strong>Representation shapes fairness:</strong> Programmatic Points is winner-takes-all on 39% of Asymmetric boards (Qwen: 74%); Programmatic Trading splits tiles equally in 49%</li>
+        <li><strong>Representation shapes fairness:</strong> Programmatic Points is winner-takes-all on 39% of Asymmetric boards; Programmatic Trading splits tiles equally in 49%</li>
       </ul>
     </div>
   </div>
