@@ -27,13 +27,13 @@
   .title-bar .affil { font-size: 27pt; color: #8fa0b8; margin-top: 0.06in; }
 
   /* Three equal columns */
-  .col { position: absolute; top: 3.4in; bottom: 0.3in; width: 23.55in; display: flex; flex-direction: column; }
+  .col { position: absolute; top: 3.4in; bottom: 0.3in; width: 23.0in; display: flex; flex-direction: column; }
   .col .block { flex: 1 1 auto; display: flex; flex-direction: column; }
   .col .block:last-child { margin-bottom: 0; }
   .col .bb { flex: 1; display: flex; flex-direction: column; justify-content: center; }
-  .c1 { left: 0.35in; }
-  .c2 { left: 24.2in; }
-  .c3 { left: 48.05in; }
+  .c1 { left: 1.2in; }
+  .c2 { left: 24.5in; }
+  .c3 { left: 47.8in; }
 
   /* Block */
   .block {
@@ -65,12 +65,12 @@
   .caption { font-size: 26pt; color: #555; margin-top: 0.08in; }
 
   table { width: 100%; border-collapse: collapse; font-size: 26pt; }
-  td { padding: 0.06in 0.12in; border-bottom: 1px solid #e0e0e0; vertical-align: top; }
-  tr:nth-child(even) { background: #e9f1fa; }
+  td { padding: 0.1in 0.12in; border-bottom: 3px solid #9aa7b4; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
   .setup-table td:first-child { font-weight: 700; color: #1b3a5c; width: 24%; }
 
-  .pred { color: #c0392b; font-weight: 700; }
-  .pblue { color: #2980b9; font-weight: 700; }
+  .pred { color: #e04c4c; font-weight: 700; }
+  .pblue { color: #5b7fe8; font-weight: 700; }
   .sm { font-size: 26pt; color: #555; }
 
   /* Key results: claim first, statistic underneath */
@@ -100,7 +100,7 @@
     <div class="bt">Why Contracts?</div>
     <div class="bb">
       <p>As increasingly capable AI agents interact in multi-agent systems and swarms, agent-to-agent alignment and reliable cooperation become increasingly important. Cooperation is difficult when its costs come early and its benefits later, so each agent has an incentive to defect. Contracts can make commitments credible by making agreements observable and enforceable.</p>
-      <div class="hl">Can LLM agents use self-negotiated contracts to cooperate with commitment?</div>
+      <p style="margin-top:0.12in; font-weight:700; text-align:center;">Can LLM agents use self-negotiated contracts to cooperate with commitment?</p>
     </div>
   </div>
 
@@ -109,8 +109,7 @@
     <div class="bb">
       <img src="figures/fig1_environment_cropped.png" class="fig">
       <p class="caption" style="text-align:center;">One game: negotiate, optionally form a contract, then move and pay.</p>
-      <p style="margin-top:0.12in;"><span class="pred">P-Red</span> and <span class="pblue">P-Blue</span> each hold 14 chips of their own color plus 2 green. Moving onto a tile costs a chip of that color, so crossing the other color requires trades. Reaching the goal earns 20 points, plus 5 per remaining chip; each player maximizes its own score.</p>
-      <p style="margin-top:0.1in;">In Pay-for-Partner mode, players instead promise to cover each other's moves. These promises are <strong>non-binding</strong>: a partner can renege.</p>
+      <p style="margin-top:0.12in;"><span class="pred">P-Red</span> and <span class="pblue">P-Blue</span> hold chips of only their own color, so finishing requires trades; the goal is worth 20 points plus 5 per chip. Pay-for-Partner promises are <strong>non-binding</strong>: a partner can renege.</p>
     </div>
   </div>
 
@@ -118,10 +117,24 @@
     <div class="bt">Setup</div>
     <div class="bb">
       <table class="setup-table">
-        <tr><td>Boards</td><td>80 total: 20 Independent (each player can finish alone), 20 Mutually Dependent (neither can finish without trading), 40 Asymmetric (<span class="pred">P-Red</span> can finish alone, <span class="pblue">P-Blue</span> cannot)</td></tr>
-        <tr><td>Models</td><td>GPT-4.1, Haiku-4.5, LLaMA Maverick, LLaMA Scout, Qwen-3-235B, Qwen-3-30B; self-play on all boards</td></tr>
+        <tr><td>Boards</td><td>80: 20 Independent (finish alone), 20 Mutually Dependent (must trade), 40 Asymmetric (<span class="pred">P-Red</span> can finish alone, <span class="pblue">P-Blue</span> cannot)</td></tr>
+        <tr><td>Models</td><td>GPT-4.1, Haiku-4.5, LLaMA Maverick, LLaMA Scout, Qwen-3-235B, Qwen-3-30B; self-play</td></tr>
         <tr><td>Metrics</td><td>Normalized Joint Reward, Gini, Both Finished, Both Beat Baseline (BBB), Defection</td></tr>
       </table>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="bt">Self-Negotiated Contracts</div>
+    <div class="bb">
+      <img src="figures/fig3_contract_types_cropped.png" class="fig">
+      <p style="margin-top:0.12in;">Agents negotiate their own contracts:</p>
+      <ul style="margin-top:0.06in;">
+        <li><strong>Programmatic Trading:</strong> chip transfers to cover agreed tiles, auto-executed</li>
+        <li><strong>Natural Language Trading:</strong> contract in natural language, an LLM judge enforces it</li>
+        <li><strong>Programmatic Points:</strong> promise part of your final score, auto-paid</li>
+      </ul>
+      <p class="sm" style="margin-top:0.1in;">A judge model (Qwen-3-235B) writes the contract; both players must accept. Acceptance: 86% (Haiku-4.5: 67%).</p>
     </div>
   </div>
 
@@ -131,33 +144,21 @@
 <div class="col c2">
 
   <div class="block">
-    <div class="bt">Self-Negotiated Contracts</div>
-    <div class="bb">
-      <img src="figures/fig3_contract_types.png" class="fig" style="width:75%; margin:0 auto;">
-      <p style="margin-top:0.12in;">Agents negotiate their own contracts, in three forms:</p>
-      <ul style="margin-top:0.06in;">
-        <li><strong>Programmatic Trading:</strong> chip transfers to cover agreed tiles, auto-executed</li>
-        <li><strong>Natural Language Trading:</strong> contract in natural language, an LLM judge enforces it</li>
-        <li><strong>Programmatic Points:</strong> promise part of your final score, auto-paid</li>
-      </ul>
-      <p class="sm" style="margin-top:0.1in;">A judge model (Qwen-3-235B) writes the contract; both players must accept it. Agents accept 86% of the time (Haiku-4.5: 67%). Programmatic Points ends winner-takes-all on 39% of Asymmetric boards (74% for Qwen models); Programmatic Trading assigns equal tiles in 49%.</p>
-    </div>
-  </div>
-
-  <div class="block">
     <div class="bt">Contracts Improve Cooperative Outcomes</div>
     <div class="bb">
-      <p class="sm">Without contracts, no model ever got both players above their baseline on any Asymmetric board (BBB = 0.00 for all six models). With contracts:</p>
+      <p class="sm">Without contracts, no model ever got both players above baseline on any Asymmetric board (BBB = 0.00). With contracts:</p>
       <img src="figures/main_panels.png" class="fig" style="width:90%; margin:0.1in auto 0 auto;">
       <div class="kr">
         <p class="claim">Programmatic contracts improve cooperative outcomes.</p>
-        <p class="ev">Normalized Joint Reward rises from 0.77 (No-Contract) to 0.89 under Programmatic Trading (p&lt;0.001).</p>
+        <p class="ev">Normalized Joint Reward 0.77 &rarr; 0.89 under Programmatic Trading (p&lt;0.001).</p>
         <p class="claim">The gains are consistent across dependent boards.</p>
-        <p class="ev">Programmatic Trading has the highest Both Finished on 45 of the 60 Mutually Dependent and Asymmetric boards; No-Contract on 6.</p>
+        <p class="ev">Highest Both Finished on 45 of 60 dependent boards, vs 6 for No-Contract.</p>
         <p class="claim">Enforced contracts reduce reliance on non-binding promises.</p>
-        <p class="ev">38% fewer Pay-for-Partner arrangements than without contracts.</p>
+        <p class="ev">38% fewer Pay-for-Partner arrangements.</p>
         <p class="claim">On Asymmetric boards, the gains go to the weaker player.</p>
-        <p class="ev" style="margin-bottom:0;"><span class="pblue">P-Blue</span> earns 68% more under Programmatic Trading (p&lt;0.001); <span class="pred">P-Red</span> does not gain.</p>
+        <p class="ev"><span class="pblue">P-Blue</span> earns 68% more under Programmatic Trading (p&lt;0.001); <span class="pred">P-Red</span> does not gain.</p>
+        <p class="claim">The form of the contract shapes how fair the deal is.</p>
+        <p class="ev" style="margin-bottom:0;">Programmatic Points: winner-takes-all on 39% of Asymmetric boards; Programmatic Trading: equal tiles in 49%.</p>
       </div>
     </div>
   </div>
@@ -165,8 +166,20 @@
   <div class="block">
     <div class="bt">Both Finished, Board by Board</div>
     <div class="bb">
-      <img src="figures/heatmap_both_finished.png" class="fig" style="width:55%; margin:0 auto;">
-      <p class="caption" style="text-align:center;">Mean Both Finished for each board under each contract type.</p>
+      <img src="figures/heatmap_both_finished.png" class="fig" style="width:72%; margin:0 auto;">
+      <p class="caption" style="text-align:center;">Mean Both Finished per board. Gains hold across most boards; Independent boards succeed in every condition; Asymmetric boards fail most without enforced contracts.</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="bt">Future Work</div>
+    <div class="bb">
+      <ul>
+        <li><strong>Beyond self-play:</strong> heterogeneous pairings, misaligned objectives, human&ndash;agent settings (in mixed pairs, Programmatic Trading enforced transfers even when Qwen-3-30B honored 6% of promises)</li>
+        <li><strong>Richer environments:</strong> larger boards, incomplete information, more than two players (collusion)</li>
+        <li><strong>Repeated games:</strong> trust, reputation, and defection over time</li>
+        <li><strong>Richer contract mechanisms:</strong> enforcement variations, formation costs, penalties for defection, renegotiation</li>
+      </ul>
     </div>
   </div>
 
@@ -176,30 +189,19 @@
 <div class="col c3">
 
   <div class="block">
-    <div class="bt">When Contracts Backfire</div>
-    <div class="bb">
-      <p>On Mutually Dependent boards, natural-language contracts do worse than no contract at all: both players finish 46% of the time, against 61% with no contract and 79% with Programmatic Trading.</p>
-      <p style="margin-top:0.1in;">The contracts formed are similar; the difference is downstream. With a natural-language contract, models propose fewer trades (1.4 vs 3.0 per game) and, when declining to trade, point to the contract 94% of the time (74% under Programmatic Trading). The contract anchors their reasoning and suppresses trading they still need.</p>
-    </div>
-  </div>
-
-  <div class="block">
     <div class="bt">Contracts Change Behavior on the Board</div>
     <div class="bb">
       <img src="figures/fig7_routes.png" class="fig">
       <p class="caption">Contracts can improve outcomes. On boards where models fail to reach their goals without a contract, adding a Programmatic Trading contract lets every model complete its route.</p>
+      <p style="margin-top:0.14in;"><strong>But contracts can also backfire.</strong> On Mutually Dependent boards, natural-language contracts do worse than no contract: Both Finished 46% vs 61% (none) and 79% (Programmatic Trading). Models over-anchor: they treat the contract as enough, trade less (1.4 vs 3.0 proposals per game), and miss trades they still need.</p>
     </div>
   </div>
 
   <div class="block">
-    <div class="bt">Future Work &amp; Extensions</div>
+    <div class="bt">Negotiation Tactics</div>
     <div class="bb">
-      <p>A first step beyond self-play: pairing GPT-4.1 with Qwen-3-30B, which honors only 6% of its promises (Haiku-4.5 honors 100%), Programmatic Trading still enforced the transfers, and the strong model lifted the weak one at its own expense.</p>
-      <ul style="margin-top:0.1in;">
-        <li>Heterogeneous pairings and larger capability gaps</li>
-        <li>Richer and formally verifiable contract mechanisms</li>
-        <li>Moving beyond self-play throughout the benchmark</li>
-      </ul>
+      <img src="figures/negotiation_tactics.png" class="fig" style="width:47%; margin:0 auto;">
+      <p class="caption" style="text-align:center;">Tactic prevalence by model. Haiku-4.5 appeals to fairness most (74% of contracts vs 39% for other models); LLaMA models use power exploitation least (17.5% vs 54%).</p>
     </div>
   </div>
 
@@ -207,9 +209,9 @@
     <div class="bt bt-accent">Takeaways</div>
     <div class="bb">
       <ol class="findings">
-        <li><strong>The way contracts are represented and enforced matters:</strong> contracts that compile to programs consistently outperform natural-language ones</li>
-        <li><strong>Self-negotiated contracts can improve cooperative outcomes</strong> beyond regular trading</li>
-        <li><strong>Agents struggle to reach mutually beneficial outcomes from asymmetric starting points</strong></li>
+        <li><strong>The way contracts are represented and enforced matters:</strong> contracts that compile to programs beat natural-language ones <span class="sm">(result panels; route maps)</span></li>
+        <li><strong>Self-negotiated contracts can improve cooperative outcomes</strong> beyond regular trading <span class="sm">(Joint Reward and Both Finished panels)</span></li>
+        <li><strong>Agents struggle to reach mutually beneficial outcomes from asymmetric starting points</strong> <span class="sm">(BBB panel; heatmap)</span></li>
       </ol>
     </div>
   </div>
@@ -220,7 +222,7 @@
       <img src="figures/qr_arxiv.png" style="width:2.6in; height:2.6in; border-radius:6px;">
       <div>
         <p><strong>CT-Bench is open-sourced.</strong><br>Paper: <strong>arxiv.org/abs/2607.22750</strong></p>
-        <p style="margin-top:0.12in;">We thank Andrey Seryakov for useful discussions and ideas. Completed as part of the <strong>Algoverse AI Safety Fellowship</strong>. Supported by the <strong>Cooperative AI Foundation</strong>.</p>
+        <p style="margin-top:0.12in;">We thank Andrey Seryakov for useful discussions. Completed as part of the <strong>Algoverse AI Safety Fellowship</strong>. Supported by the <strong>Cooperative AI Foundation</strong>.</p>
       </div>
     </div>
   </div>
